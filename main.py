@@ -10,14 +10,16 @@ reader = PyPDF2.PdfReader(book)
 pages = len(reader.pages)
 print(pages)
 
-# Now lets read a specific page
-page = reader.pages[1]
+# Let's read our entire file
+for index in range(pages):
+    # Now lets read a specific page
+    page = reader.pages[index]
 
-# now we extract the binary to text
-text = page.extract_text()
+    # now we extract the binary to text
+    text = page.extract_text()
 
-# pass string to be read to instance using .say() method
-speaker.say(text)
+    # pass string to be read to instance using .say() method
+    speaker.say(text)
 
-# Read out the string now using .runAndWait()
-speaker.runAndWait()
+    # Read out the string now using .runAndWait()
+    speaker.runAndWait()
